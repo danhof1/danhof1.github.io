@@ -1321,11 +1321,11 @@
                 </div>
                 <div class="contact-content">
                     <div class="contact-info">
-                        <div class="contact-item" onclick="copyEmail()" style="cursor: pointer;">
+                        <div class="contact-item">
                             <div class="contact-icon">📧</div>
                             <div class="contact-details">
-                                <a onclick="event.preventDefault(); copyEmail();"><span class="__cf_email__" data-cfemail="eb8f8a8585928f84928485dad9d8ab8c868a8287c5888486">[email&#160;protected]</span></a>
-                                <p id="email-status">Click to copy email</p>
+                                <a href="mailto:dannydoyon123@gmail.com">dannydoyon123@gmail.com</a>
+                                <p>Email me anytime</p>
                             </div>
                         </div>
                         <div class="contact-item">
@@ -1384,7 +1384,7 @@
             <div class="social-links">
                 <a href="https://linkedin.com/in/danieldoy0n/" target="_blank" class="social-link">💼</a>
                 <a href="https://github.com/danhof1" target="_blank" class="social-link">💻</a>
-                <a href="/cdn-cgi/l/email-protection#5430353a3a2d303b2d3b3a656667143339353d387a373b39" class="social-link">📧</a>
+                <a href="mailto:dannydoyon123@gmail.com" class="social-link">📧</a>
             </div>
             <p class="footer-text">
                 © 2026 Daniel Doyon. Built with passion for AI and innovation.
@@ -1392,49 +1392,7 @@
         </div>
     </footer>
 
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-        // Copy email to clipboard
-        function copyEmail() {
-            const email = 'dannydoyon123@gmail.com';
-            const statusText = document.getElementById('email-status');
-            
-            navigator.clipboard.writeText(email).then(function() {
-                // Success - show copied message
-                statusText.textContent = '✓ Copied to clipboard!';
-                statusText.style.color = 'var(--accent-green)';
-                
-                // Reset after 2 seconds
-                setTimeout(function() {
-                    statusText.textContent = 'Click to copy email';
-                    statusText.style.color = 'var(--text-secondary)';
-                }, 2000);
-            }).catch(function(err) {
-                // Fallback for older browsers
-                const textArea = document.createElement('textarea');
-                textArea.value = email;
-                textArea.style.position = 'fixed';
-                textArea.style.left = '-999999px';
-                document.body.appendChild(textArea);
-                textArea.select();
-                
-                try {
-                    document.execCommand('copy');
-                    statusText.textContent = '✓ Copied to clipboard!';
-                    statusText.style.color = 'var(--accent-green)';
-                    
-                    setTimeout(function() {
-                        statusText.textContent = 'Click to copy email';
-                        statusText.style.color = 'var(--text-secondary)';
-                    }, 2000);
-                } catch (err) {
-                    statusText.textContent = 'Unable to copy';
-                    statusText.style.color = '#ef4444';
-                }
-                
-                document.body.removeChild(textArea);
-            });
-        }
-
+    <script>
         // Smooth scroll with offset for fixed header
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
