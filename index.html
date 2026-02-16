@@ -1,5 +1,3 @@
-# danhof1.github.io
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -1323,11 +1321,11 @@
                 </div>
                 <div class="contact-content">
                     <div class="contact-info">
-                        <div class="contact-item">
+                        <div class="contact-item" onclick="copyEmail()" style="cursor: pointer;">
                             <div class="contact-icon">📧</div>
                             <div class="contact-details">
-                                <a href="/cdn-cgi/l/email-protection#c2a6a3acacbba6adbbadacf3f0f182a5afa3abaeeca1adaf"><span class="__cf_email__" data-cfemail="debabfb0b0a7bab1a7b1b0efeced9eb9b3bfb7b2f0bdb1b3">dannydoyon123@gmail.com</span></a>
-                                <p>Email me anytime</p>
+                                <a onclick="event.preventDefault(); copyEmail();"><span class="__cf_email__" data-cfemail="eb8f8a8585928f84928485dad9d8ab8c868a8287c5888486">[email&#160;protected]</span></a>
+                                <p id="email-status">Click to copy email</p>
                             </div>
                         </div>
                         <div class="contact-item">
@@ -1394,7 +1392,49 @@
         </div>
     </footer>
 
-    <script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+        // Copy email to clipboard
+        function copyEmail() {
+            const email = 'dannydoyon123@gmail.com';
+            const statusText = document.getElementById('email-status');
+            
+            navigator.clipboard.writeText(email).then(function() {
+                // Success - show copied message
+                statusText.textContent = '✓ Copied to clipboard!';
+                statusText.style.color = 'var(--accent-green)';
+                
+                // Reset after 2 seconds
+                setTimeout(function() {
+                    statusText.textContent = 'Click to copy email';
+                    statusText.style.color = 'var(--text-secondary)';
+                }, 2000);
+            }).catch(function(err) {
+                // Fallback for older browsers
+                const textArea = document.createElement('textarea');
+                textArea.value = email;
+                textArea.style.position = 'fixed';
+                textArea.style.left = '-999999px';
+                document.body.appendChild(textArea);
+                textArea.select();
+                
+                try {
+                    document.execCommand('copy');
+                    statusText.textContent = '✓ Copied to clipboard!';
+                    statusText.style.color = 'var(--accent-green)';
+                    
+                    setTimeout(function() {
+                        statusText.textContent = 'Click to copy email';
+                        statusText.style.color = 'var(--text-secondary)';
+                    }, 2000);
+                } catch (err) {
+                    statusText.textContent = 'Unable to copy';
+                    statusText.style.color = '#ef4444';
+                }
+                
+                document.body.removeChild(textArea);
+            });
+        }
+
         // Smooth scroll with offset for fixed header
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -1417,8 +1457,4 @@
             rootMargin: '0px 0px -100px 0px'
         };
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.tar
+        const observer = n
