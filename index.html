@@ -211,6 +211,65 @@
             padding-top: 8rem;
         }
 
+        .hero-content-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 400px;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-text {
+            max-width: 100%;
+        }
+
+        .hero-image {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .image-wrapper {
+            position: relative;
+            width: 350px;
+            height: 350px;
+            border-radius: 20px;
+            overflow: hidden;
+            border: 3px solid transparent;
+            background: var(--gradient-1);
+            padding: 3px;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .image-wrapper::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 20px;
+            padding: 3px;
+            background: var(--gradient-1);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            opacity: 0.5;
+            animation: rotate 8s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .image-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 17px;
+            display: block;
+            position: relative;
+            z-index: 1;
+        }
+
         .hero-label {
             display: inline-block;
             padding: 0.5rem 1rem;
@@ -869,6 +928,21 @@
                 font-size: 2.2rem;
             }
 
+            .hero-content-wrapper {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .hero-image {
+                order: -1;
+            }
+
+            .image-wrapper {
+                width: 280px;
+                height: 280px;
+                margin: 0 auto;
+            }
+
             .about-content,
             .contact-content {
                 grid-template-columns: 1fr;
@@ -900,6 +974,11 @@
 
             .about-stats {
                 grid-template-columns: 1fr;
+            }
+
+            .image-wrapper {
+                width: 250px;
+                height: 250px;
             }
         }
 
@@ -936,16 +1015,25 @@
         <!-- Hero Section -->
         <section class="hero">
             <div class="container">
-                <div class="hero-label">✨ Data Scientist & ML Engineer</div>
-                <h1>Daniel Doyon</h1>
-                <p class="hero-subtitle">Building intelligent systems with cutting-edge AI</p>
-                <p class="hero-description">
-                    Graduate student specializing in Machine Learning, Deep Learning, and Natural Language Processing. 
-                    Passionate about leveraging AI to solve complex real-world problems with a focus on privacy-preserving ML and computer vision.
-                </p>
-                <div class="hero-cta">
-                    <a href="#contact" class="btn btn-primary">Get In Touch →</a>
-                    <a href="danielDoyon_resume_2026.pdf" download class="btn btn-secondary">📄 Download Resume</a>
+                <div class="hero-content-wrapper">
+                    <div class="hero-text">
+                        <div class="hero-label">✨ Data Scientist & ML Engineer</div>
+                        <h1>Daniel Doyon</h1>
+                        <p class="hero-subtitle">Building intelligent systems with cutting-edge AI</p>
+                        <p class="hero-description">
+                            Graduate student specializing in Machine Learning, Deep Learning, and Natural Language Processing. 
+                            Passionate about leveraging AI to solve complex real-world problems with a focus on privacy-preserving ML and computer vision.
+                        </p>
+                        <div class="hero-cta">
+                            <a href="#contact" class="btn btn-primary">Get In Touch →</a>
+                            <a href="danielDoyon_resume_2026.pdf" download class="btn btn-secondary">📄 Download Resume</a>
+                        </div>
+                    </div>
+                    <div class="hero-image">
+                        <div class="image-wrapper">
+                            <img src="profile-photo.jpg" alt="Daniel Doyon">
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
